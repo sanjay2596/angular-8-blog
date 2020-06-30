@@ -9,11 +9,12 @@ export class AddBlogComponent implements OnInit {
 
   constructor() { }
   blogs = [];
+
   ngOnInit() {
   }
    
   addBlog(title, content, author){
-    let blog = { "title": title.value, "content": content.value, "author" : author.value };
+    let blog = { title: title.value, content: content.value, author : author.value  , id : Math.floor(Math.random() * (100 - 10 + 1) ) + 10, date: new Date()}
     if(localStorage.getItem("blogs")){
       this.blogs = JSON.parse(localStorage.getItem("blogs"))
     }

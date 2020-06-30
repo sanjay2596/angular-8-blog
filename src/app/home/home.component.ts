@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router )  { }
   blogs = []
   ngOnInit() {
     this.blogs = JSON.parse(localStorage.getItem("blogs"))
@@ -17,5 +18,9 @@ export class HomeComponent implements OnInit {
     this.blogs.splice(index, 1)
     localStorage.setItem("blogs", JSON.stringify(this.blogs))
     alert("blog has been Deleted")
+  }
+
+  onSelect(blog){
+     this.router.navigate(['/',blog.id]);
   }
 }

@@ -7,8 +7,8 @@
                 {{ blog.title  }}
                 <span style="float: right; color:red; cursor:pointer;" (click)="removeBlog(blog)">X</span>
             </div>
-            <div class="card-body">
-                <p class="card-text">{{ blog.content }}</p>
+            <div class="card-body" (click)="onSelect(blog)" >
+                <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ blog.content }}</p> 
             </div>
         </div>
     </div>
